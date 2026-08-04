@@ -303,5 +303,18 @@ height:55px;
 font-size:20px;
 
 }
+}
+.record.playing .cover{
+    animation:coverFix 5s linear infinite;
+}
+
+@keyframes coverFix{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(-360deg);
+    }
+}
 
 }
