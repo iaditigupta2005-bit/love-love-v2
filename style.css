@@ -1,0 +1,301 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffe1ee,#fff7e8,#dff8e6);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    overflow-x:hidden;
+    color:#4d3d45;
+}
+
+.bg-blur{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,192,203,.25),transparent 30%),
+    radial-gradient(circle at 80% 40%,rgba(183,234,191,.25),transparent 30%),
+    radial-gradient(circle at 50% 90%,rgba(255,255,255,.25),transparent 40%);
+    filter:blur(35px);
+    z-index:-2;
+}
+
+.hero{
+    text-align:center;
+    margin-top:40px;
+    margin-bottom:25px;
+}
+
+.small{
+    font-size:14px;
+    letter-spacing:2px;
+    color:#8d6d7c;
+}
+
+.hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;
+    margin:8px 0;
+}
+
+.artist{
+    color:#7a6b74;
+}
+
+.player{
+    width:360px;
+    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(18px);
+    border-radius:28px;
+    padding:28px;
+    box-shadow:0 20px 50px rgba(0,0,0,.12);
+}
+
+.record-wrapper{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    margin-bottom:25px;
+}
+
+.record{
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:repeating-radial-gradient(circle,#111 0,#222 4px,#111 8px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.record img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid white;
+}
+
+.record.playing{
+    animation:spin 5s linear infinite;
+}
+
+@keyframes spin{
+    from{transform:rotate(0)}
+    to{transform:rotate(360deg)}
+}
+
+.song-details{
+    text-align:center;
+}
+
+.song-details h2{
+    margin-top:10px;
+    font-size:26px;
+}
+
+.song-details p{
+    color:#666;
+    margin-top:8px;
+}
+
+.controls{
+    margin-top:25px;
+}
+
+#playBtn{
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:#ff8fb1;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    display:block;
+    margin:auto;
+}
+
+.progress-area{
+    width:100%;
+    height:8px;
+    background:#efd7e3;
+    border-radius:20px;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:#ff8fb1;
+}
+
+.time{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-top:12px;
+    color:#666;
+    font-size:14px;
+}
+
+audio{
+    display:none;
+}
+/* ---------- Ending ---------- */
+
+.ending{
+    margin-top:35px;
+    margin-bottom:30px;
+    text-align:center;
+    color:#866976;
+    font-size:15px;
+    letter-spacing:1px;
+}
+
+/* ---------- Tonearm ---------- */
+
+.tonearm{
+    position:absolute;
+    width:120px;
+    height:8px;
+    background:linear-gradient(to right,#bcbcbc,#7f7f7f);
+    border-radius:10px;
+    top:18px;
+    right:18px;
+    transform-origin:left center;
+    transform:rotate(-28deg);
+    transition:.5s;
+    z-index:10;
+}
+
+.tonearm.playing{
+    transform:rotate(2deg);
+}
+
+/* ---------- Sparkles ---------- */
+
+.sparkles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.sparkles::before,
+.sparkles::after{
+    content:"✨ ✨ ✨ ✨ ✨";
+    position:absolute;
+    width:100%;
+    animation:floatSparkles 18s linear infinite;
+    opacity:.45;
+    font-size:20px;
+}
+
+.sparkles::after{
+    top:55%;
+    animation-delay:9s;
+}
+
+@keyframes floatSparkles{
+
+0%{
+transform:translateY(100vh);
+}
+
+100%{
+transform:translateY(-120vh);
+}
+
+}
+
+/* ---------- Flowers ---------- */
+
+.flowers{
+    position:fixed;
+    width:170px;
+    height:170px;
+    opacity:.22;
+    pointer-events:none;
+    background-size:cover;
+    filter:blur(1px);
+}
+
+.flowers-left{
+    top:0;
+    left:0;
+}
+
+.flowers-right{
+    right:0;
+    bottom:0;
+    transform:rotate(180deg);
+}
+
+/* ---------- Hover ---------- */
+
+.player{
+    transition:.35s;
+}
+
+.player:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 25px 70px rgba(0,0,0,.16);
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:480px){
+
+.player{
+
+width:92%;
+
+padding:22px;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+.record{
+
+width:210px;
+
+height:210px;
+
+}
+
+.record img{
+
+width:105px;
+
+height:105px;
+
+}
+
+#playBtn{
+
+width:55px;
+
+height:55px;
+
+font-size:20px;
+
+}
+
+}
