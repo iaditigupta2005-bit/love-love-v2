@@ -303,18 +303,24 @@ height:55px;
 font-size:20px;
 
 }
+.cover-holder{
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
-.record.playing .cover{
+
+.record.playing{
     animation:spin 5s linear infinite;
 }
 
-@keyframes spin{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(360deg);
-    }
+.cover{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    object-fit:cover;
 }
-
 }
