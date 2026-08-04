@@ -305,7 +305,7 @@ font-size:20px;
 }
 }
 .record.playing .cover{
-    animation:coverFix 5s linear infinite;
+    animation:spin 5s linear infinite;
 }
 
 @keyframes coverFix{
@@ -313,7 +313,7 @@ font-size:20px;
         transform:rotate(0deg);
     }
     to{
-        transform:rotate(-360deg);
+        transform:rotate(360deg);
     }
 }
 
