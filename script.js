@@ -52,6 +52,9 @@ audio.addEventListener("loadedmetadata",()=>{
     duration.textContent=formatTime(audio.duration);
 
 });
+audio.addEventListener("canplay", () => {
+    duration.textContent = formatTime(audio.duration);
+});
 
 audio.addEventListener("timeupdate",()=>{
 
